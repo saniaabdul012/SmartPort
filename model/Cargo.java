@@ -1,57 +1,68 @@
+
 package model;
 
 import enums.CargoType;
 
 public class Cargo {
 
-    private String cargoId;
-    private String description;
-    private CargoType cargoType;
-    private double weight;
+private String cargoId;
+private String description;
+private CargoType cargoType;
+private double weight;
+private Ship ship;
+private boolean loaded;
 
-    public Cargo(String cargoId, String description, CargoType cargoType, double weight) {
-        this.cargoId = cargoId;
-        this.description = description;
-        this.cargoType = cargoType;
-        this.weight = weight;
-    }
+public Cargo(String cargoId, String description,
+             CargoType cargoType, double weight) {
 
-    public String getCargoId() {
-        return cargoId;
-    }
+    this.cargoId = cargoId;
+    this.description = description;
+    this.cargoType = cargoType;
+    this.weight = weight;
+    this.loaded = false;
+}
 
-    public void setCargoId(String cargoId) {
-        this.cargoId = cargoId;
-    }
+public String getCargoId() {
+    return cargoId;
+}
 
-    public String getDescription() {
-        return description;
-    }
+public String getDescription() {
+    return description;
+}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+public CargoType getCargoType() {
+    return cargoType;
+}
 
-    public CargoType getCargoType() {
-        return cargoType;
-    }
+public double getWeight() {
+    return weight;
+}
 
-    public void setCargoType(CargoType cargoType) {
-        this.cargoType = cargoType;
-    }
+public Ship getShip() {
+    return ship;
+}
 
-    public double getWeight() {
-        return weight;
-    }
+public void setShip(Ship ship) {
+    this.ship = ship;
+}
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+public boolean isLoaded() {
+    return loaded;
+}
 
-    public void displayDetails() {
-        System.out.println("Cargo ID: " + cargoId);
-        System.out.println("Description: " + description);
-        System.out.println("Cargo Type: " + cargoType);
-        System.out.println("Weight: " + weight);
-    }
+public void setLoaded(boolean loaded) {
+    this.loaded = loaded;
+}
+
+public void displayDetails() {
+    System.out.println(
+            cargoId + " | " + description
+            + " | " + cargoType
+            + " | Weight: " + weight
+            + " | Ship: "
+            + (ship == null ? "None" : ship.getShipId())
+            + " | Loaded: " + loaded
+    );
+}
+
 }
